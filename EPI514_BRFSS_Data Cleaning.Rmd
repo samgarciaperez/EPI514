@@ -1,0 +1,50 @@
+---
+title: "EPI514_BRFSS"
+output: html_document
+date: "2024-04-23"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+**DATA CLEANING AND SETUP** 
+
+```{r logistics set up}
+
+setwd("/Users/samanthagarciaperez/Desktop/EPI 514/R") # set working directory 
+
+#load libraries 
+
+library(tidyverse)
+library(dplyr)
+
+
+```
+
+
+```{r convert XPT file to CSV}
+
+library (haven)
+BRFSS_xpt <-read_xpt("LLCP2022.XPT ")
+
+
+write.csv(BRFSS_xpt, file
+          = "BRFSS", 
+          row.names = FALSE)
+
+```
+
+
+```{r input data}
+
+
+setwd("/Users/samanthagarciaperez/Desktop/EPI 514/R")
+dat <- read.csv("BRFSS.csv")
+
+```
+
+
+
