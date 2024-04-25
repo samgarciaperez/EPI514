@@ -7,6 +7,8 @@ date: "2024-04-23"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+#test test 
 ```
 
 
@@ -44,7 +46,12 @@ write.csv(BRFSS_xpt, file
 setwd("/Users/samanthagarciaperez/Desktop/EPI 514/R")
 dat <- read.csv("BRFSS.csv")
 
+
+## this is a test, hhehgwhghhwijvgnwol 
+
 ```
+
+
 
 
 
