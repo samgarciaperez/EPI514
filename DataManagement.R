@@ -1,10 +1,5 @@
 #############################################################################
 # NAME: DATA MANAGEMENT 
 
-# ok lets try this again, can you see this 
+BRFSS <- read.csv("/Users/samanthagarciaperez/Desktop/EPI 514/R/BRFSS") 
 
-data <- data.frame(c(1), c(1))
-
-#testing testing Mirta 
-setwd("")
-read.csv()
