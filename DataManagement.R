@@ -36,13 +36,69 @@ colnames(BRFSS) <- trimws(colnames(BRFSS)) #removing any blank spaces in column 
 
 
 #cutting down data set to what we need
-
-
-BRFSS <- BRFSS[, c("state", "sex", "HlthDiscrim", 
-                   "CervScrnEver", "CervScrnHPV", "CervScrnPAP", "HadHyst", "RaceOthers", 
-                   "income", "employ", "insurance", "edu", "age", "GenHlth")]
+BRFSS <- BRFSS[,c("state", "sex","HlthDiscrim", "CervScrnEver", "CervScrnHPV", 
+                  "CervScrnPAP", "HadHyst", "RaceOthers", "income", "employ",
+                  "insurance", "edu", "age", "GenHlth")]
 
 names(brfss) #check names included are correct
 
 
 
+
+#################### EXPOSURE (Mirta) ###################
+
+
+
+
+#################### OUTCOMES (Aileen) ########################
+
+#check cervical cancer variables
+
+summary(BRFSS$CervScrnEver)
+summary(BRFSS$CervScrnHPV)
+summary(BRFSS$CervScrnPAP)
+summary(BRFSS$HadHyst)
+
+#Cervical Screen ever variable
+
+BRFSS$CervScrnEver[BRFSS$CervScrnEver==2] <- 0 #assigning 0 for no
+
+
+BRFSS$CervScrnEver[BRFSS$CervScrnEver==7] <- NA #set missing values
+BRFSS$CervScrnEver[BRFSS$CervScrnEver==9] <- NA #set missing values
+
+summary(BRFSS$CervScrnEver) #check
+
+
+#Cervical Screen with HPV test
+
+BRFSS$CervScrnHPV[BRFSS$CervScrnHPV==2] <- 0 #assigning 0 for no
+
+
+BRFSS$CervScrnHPV[BRFSS$CervScrnHPV==7] <- NA #set missing values
+BRFSS$CervScrnHPV[BRFSS$CervScrnHPV==9] <- NA #set missing values
+
+summary(BRFSS$CervScrnHPV) #check
+
+#Cervical Screen with PAP test
+
+BRFSS$CervScrnPAP[BRFSS$CervScrnPAP==2] <- 0 #assigning 0 for no
+
+
+BRFSS$CervScrnPAP[BRFSS$CervScrnPAP==7] <- NA #set missing values
+BRFSS$CervScrnPAP[BRFSS$CervScrnPAP==9] <- NA #set missing values
+
+summary(BRFSS$CervScrnPAP) #check
+
+#Hist of hysterectomy
+
+BRFSS$HadHyst[BRFSS$HadHyst==2] <- 0 #assigning 0 for no
+
+
+BRFSS$HadHyst[BRFSS$HadHyst==7] <- NA #set missing values
+BRFSS$HadHyst[BRFSS$HadHyst==9] <- NA #set missing values
+
+summary(BRFSS$HadHyst) #check
+
+
+########################## COVARIATES (Mirta/Samantha) ####################
