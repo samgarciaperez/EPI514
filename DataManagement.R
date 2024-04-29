@@ -183,4 +183,23 @@ BRFSS$edu.f <- factor(BRFSS$edu.f,
 table(BRFSS$edu.f)
 
 
+#GENHLTH
+table(BRFSS$GenHlth)
+
+#converting "refused" to missing 
+BRFSS$GenHlth[BRFSS$GenHlth==9] <- NA
+BRFSS$GenHlth[BRFSS$GenHlth==7] <- NA
+
+#factoring variable 
+BRFSS$GenHlth.f[BRFSS$GenHlth>=1 & BRFSS$GenHlth<=3] <- 1 
+BRFSS$GenHlth.f[BRFSS$GenHlth>=4 & BRFSS$GenHlth<=5] <- 2 
+
+#adding labels 
+BRFSS$GenHlth.f <- factor(BRFSS$GenHlth.f,
+                      levels = 1:2,
+                      labels = c("excellent-good", "fair-poor"))
+
+
+#checking
+table(BRFSS$GenHlth.f)
 
