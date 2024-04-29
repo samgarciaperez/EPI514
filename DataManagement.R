@@ -125,12 +125,12 @@ table(BRFSS$insurance)
 BRFSS$insurance[BRFSS$insurance==77] <- NA
 BRFSS$insurance[BRFSS$insurance==99] <- NA
 
-#converting to factor 
+#creating categories to prepare for factor variable
 
 BRFSS$insurance.f[BRFSS$insurance<=10] <- 1
 BRFSS$insurance.f[BRFSS$insurance==88] <- 0
 
-#converting to labeled factor 
+#factoring and converting to labeled factor 
 BRFSS$insurance.f <- factor(BRFSS$insurance.f,
                       levels = 0:1,
                       labels = c("No", "Yes"))
@@ -147,14 +147,14 @@ BRFSS$age[BRFSS$age >65] <- NA
 BRFSS$age[BRFSS$age <25] <- NA
 
 
-#converting to factor 
+#creating categories to prepare for factor variable
 BRFSS$age.f[BRFSS$age>=25 & BRFSS$age<=29] <- 1 
 BRFSS$age.f[BRFSS$age>=30 & BRFSS$age<=39] <- 2 
 BRFSS$age.f[BRFSS$age>=40 & BRFSS$age<=49] <- 3 
 BRFSS$age.f[BRFSS$age>=50 & BRFSS$age<=59] <- 4
 BRFSS$age.f[BRFSS$age>=60 & BRFSS$age<=65] <- 5 
 
-#adding labels
+#factoring and converting to labeled factor 
 BRFSS$age.f <- factor(BRFSS$age.f,
                             levels = 1:5,
                             labels = c("25-29", "30-39", "40-49", "50-59", "60-65"))
