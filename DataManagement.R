@@ -137,3 +137,7 @@ BRFSS$insurance.f <- factor(BRFSS$insurance.f,
 #checking
 table(BRFSS$insurance.f)
 
+
+#AGE 
+
+
