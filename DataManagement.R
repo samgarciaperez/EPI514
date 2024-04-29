@@ -124,3 +124,9 @@ table(BRFSS$insurance)
 #setting values to missing (red highlight)
 BRFSS$insurance[BRFSS$insurance==77] <- NA
 BRFSS$insurance[BRFSS$insurance==99] <- NA
+
+#converting to factor 
+BRFSS$insurance.f<- BRFSS$insurance[BRFSS$insurance <=10] <- 1
+BRFSS$insurance.f<- BRFSS$insurance[BRFSS$insurance==88] <- 0
+
+
