@@ -169,12 +169,12 @@ table(BRFSS$edu)
 #converting "refused" values to missing 
 BRFSS$edu[BRFSS$edu==9] <- NA
 
-#factoring variables 
+#creating categories to prepare for factor variable
 BRFSS$edu.f[BRFSS$edu<=4] <-1
 BRFSS$edu.f[BRFSS$edu==5] <-2
 BRFSS$edu.f[BRFSS$edu==6] <-3
 
-#adding labels 
+#factoring and converting to labeled factor 
 BRFSS$edu.f <- factor(BRFSS$edu.f,
                       levels = 1:3,
                       labels = c("≤ high school", "some college", "college"))
@@ -190,11 +190,11 @@ table(BRFSS$GenHlth)
 BRFSS$GenHlth[BRFSS$GenHlth==9] <- NA
 BRFSS$GenHlth[BRFSS$GenHlth==7] <- NA
 
-#factoring variable 
+#creating categories to prepare for factor variable
 BRFSS$GenHlth.f[BRFSS$GenHlth>=1 & BRFSS$GenHlth<=3] <- 1 
 BRFSS$GenHlth.f[BRFSS$GenHlth>=4 & BRFSS$GenHlth<=5] <- 2 
 
-#adding labels 
+#factoring and converting to labeled factor 
 BRFSS$GenHlth.f <- factor(BRFSS$GenHlth.f,
                       levels = 1:2,
                       labels = c("excellent-good", "fair-poor"))
