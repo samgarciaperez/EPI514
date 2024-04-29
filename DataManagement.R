@@ -1,7 +1,7 @@
 #############################################################################
 # NAME: DATA MANAGEMENT 
 rm(list=ls())
-BRFSS <- read.csv("/Users/aileenandrade/Desktop/Spring Quarter/Epi 514/BRFSS project/Data/BRFSS") 
+BRFSS <- read.csv("/Users/mirtamaravilla/Documents/UW Courses/Spring Qtr 2024/EPI 514 /EPI 514 Research/BRFSS") 
 
 library(tidyverse)
 library(haven)
