@@ -140,4 +140,25 @@ table(BRFSS$insurance.f)
 
 #AGE 
 
+table(BRFSS$age)
+
+#turning values >65 and <25 to missing 
+BRFSS$age[BRFSS$age >65] <- NA
+BRFSS$age[BRFSS$age <25] <- NA
+
+
+#converting to factor 
+BRFSS$age.f[BRFSS$age>=25 & BRFSS$age<=29] <- 1 
+BRFSS$age.f[BRFSS$age>=30 & BRFSS$age<=39] <- 2 
+BRFSS$age.f[BRFSS$age>=40 & BRFSS$age<=49] <- 3 
+BRFSS$age.f[BRFSS$age>=50 & BRFSS$age<=59] <- 4
+BRFSS$age.f[BRFSS$age>=60 & BRFSS$age<=65] <- 5 
+
+#adding labels
+BRFSS$age.f <- factor(BRFSS$age.f,
+                            levels = 1:5,
+                            labels = c("25-29", "30-39", "40-49", "50-59", "60-65"))
+
+#checking
+table(BRFSS$age.f)
 
