@@ -1,7 +1,7 @@
 #############################################################################
 # NAME: DATA MANAGEMENT 
 rm(list=ls())
-BRFSS <- read.csv("/Users/mirtamaravilla/Documents/UW Courses/Spring Qtr 2024/EPI 514 /EPI 514 Research/BRFSS") 
+BRFSS <- read.csv("/Users/aileenandrade/Desktop/Spring Quarter/Epi 514/BRFSS project/Data/BRFSS") 
 
 library(tidyverse)
 library(haven)
@@ -74,7 +74,7 @@ summary(BRFSS$CervScrnHPV)
 summary(BRFSS$CervScrnPAP)
 summary(BRFSS$HadHyst)
 
-#Cervical Screen ever variable
+###Cervical Screen ever variable
 
 BRFSS$CervScrnEver[BRFSS$CervScrnEver==2] <- 0 #assigning 0 for no
 
@@ -84,8 +84,13 @@ BRFSS$CervScrnEver[BRFSS$CervScrnEver==9] <- NA #set missing values
 
 summary(BRFSS$CervScrnEver) #check
 
+#factoring and converting to labeled factor 
+BRFSS$CervScrnEver.f <- factor(BRFSS$CervScrnEver,
+                            levels = 0:1,
+                            labels = c("No", "Yes"))
+table(BRFSS$CervScrnEver.f) #check
 
-#Cervical Screen with HPV test
+###Cervical Screen with HPV test
 
 BRFSS$CervScrnHPV[BRFSS$CervScrnHPV==2] <- 0 #assigning 0 for no
 
@@ -95,7 +100,14 @@ BRFSS$CervScrnHPV[BRFSS$CervScrnHPV==9] <- NA #set missing values
 
 summary(BRFSS$CervScrnHPV) #check
 
-#Cervical Screen with PAP test
+
+#factoring and converting to labeled factor 
+BRFSS$CervScrnHPV.f <- factor(BRFSS$CervScrnHPV,
+                               levels = 0:1,
+                               labels = c("No", "Yes"))
+table(BRFSS$CervScrnHPV.f) #check
+
+###Cervical Screen with PAP test
 
 BRFSS$CervScrnPAP[BRFSS$CervScrnPAP==2] <- 0 #assigning 0 for no
 
@@ -105,7 +117,13 @@ BRFSS$CervScrnPAP[BRFSS$CervScrnPAP==9] <- NA #set missing values
 
 summary(BRFSS$CervScrnPAP) #check
 
-#Hist of hysterectomy
+#factoring and converting to labeled factor 
+BRFSS$CervScrnPAP.f <- factor(BRFSS$CervScrnPAP,
+                              levels = 0:1,
+                              labels = c("No", "Yes"))
+table(BRFSS$CervScrnPAP.f) #check
+
+###Hist of hysterectomy
 
 BRFSS$HadHyst[BRFSS$HadHyst==2] <- 0 #assigning 0 for no
 
@@ -115,6 +133,11 @@ BRFSS$HadHyst[BRFSS$HadHyst==9] <- NA #set missing values
 
 summary(BRFSS$HadHyst) #check
 
+#factoring and converting to labeled factor 
+BRFSS$HadHyst.f <- factor(BRFSS$HadHyst,
+                              levels = 0:1,
+                              labels = c("No", "Yes"))
+table(BRFSS$HadHyst.f) #check
 
 ########################## COVARIATES (Mirta/Samantha) ####################
 
