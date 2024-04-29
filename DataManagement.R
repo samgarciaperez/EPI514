@@ -26,7 +26,7 @@ names(BRFSS)[names(BRFSS) == "INCOME3"] <- "income"
 names(BRFSS)[names(BRFSS) == "EMPLOY1"] <- "employ"
 names(BRFSS)[names(BRFSS) == "PRIMINSR"] <- "insurance"
 names(BRFSS)[names(BRFSS) == "EDUCA"] <- "edu"
-names(BRFSS)[names(BRFSS) == "_AGE80"] <- "age"
+names(BRFSS)[names(BRFSS) == "X_AGE80"] <- "age"
 names(BRFSS)[names(BRFSS) == "GENHLTH"] <- "GenHlth"
 
 
@@ -46,7 +46,10 @@ names(brfss) #check names included are correct
 
 
 #################### EXPOSURE (Mirta) ###################
+#checking race variables
+table(BRFSS$HlthDiscrim)
 
+#Setting values to missing (highlighted red in data dictionary)
 
 
 
