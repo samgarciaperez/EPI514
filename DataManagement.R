@@ -162,3 +162,6 @@ BRFSS$age.f <- factor(BRFSS$age.f,
 #checking
 table(BRFSS$age.f)
 
+
+#EDUCATION
+table(BRFSS$edu)
