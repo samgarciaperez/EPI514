@@ -126,13 +126,14 @@ BRFSS$insurance[BRFSS$insurance==77] <- NA
 BRFSS$insurance[BRFSS$insurance==99] <- NA
 
 #converting to factor 
-BRFSS$insurance_f<- BRFSS$insurance[BRFSS$insurance <=10] <- 1
-BRFSS$insurance_f<- BRFSS$insurance[BRFSS$insurance==88] <- 0
+
+BRFSS$insurance.f[BRFSS$insurance<=10] <- 1
+BRFSS$insurance.f[BRFSS$insurance==88] <- 0
 
 #converting to labeled factor 
 BRFSS$insurance.f <- factor(BRFSS$insurance_f,
                       levels = 0:1,
                       labels = c("No", "Yes"))
 #checking
-table(BRFSS$insurance_f)
+table(BRFSS$insurance.f)
 
