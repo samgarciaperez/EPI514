@@ -40,7 +40,7 @@ BRFSS <- BRFSS[,c("state", "sex","HlthDiscrim", "CervScrnEver", "CervScrnHPV",
                   "CervScrnPAP", "HadHyst", "RaceOthers", "income", "employ",
                   "insurance", "edu", "age", "GenHlth")]
 
-names(brfss) #check names included are correct
+names(BRFSS) #check names included are correct
 
 
 
@@ -50,7 +50,19 @@ names(brfss) #check names included are correct
 table(BRFSS$HlthDiscrim)
 
 #Setting values to missing (highlighted red in data dictionary)
+BRFSS$HlthDiscrim[BRFSS$HlthDiscrim==5] <- NA 
+BRFSS$HlthDiscrim[BRFSS$HlthDiscrim==6] <- NA 
+BRFSS$HlthDiscrim[BRFSS$HlthDiscrim==7] <- NA 
+BRFSS$HlthDiscrim[BRFSS$HlthDiscrim==9] <- NA
+table(BRFSS$HlthDiscrim)
 
+#converting into labeled factor variables 
+BRFSS$HlthDiscrim.f <- factor(BRFSS$HlthDiscrim,
+                           levels = 1:4, 
+                           labels = c("Worse than others", "same as others", 
+                                      "better than others", "worse than some,better than others"))
+#checking 
+table(BRFSS$HlthDiscrim.f)
 
 
 #################### OUTCOMES (Aileen) ########################
@@ -105,3 +117,10 @@ summary(BRFSS$HadHyst) #check
 
 
 ########################## COVARIATES (Mirta/Samantha) ####################
+
+#INSURANCE 
+table(BRFSS$insurance)
+
+#setting values to missing (red highlight)
+BRFSS$insurance[BRFSS$insurance==77] <- NA
+BRFSS$insurance[BRFSS$insurance==99] <- NA
