@@ -3,6 +3,8 @@
 rm(list=ls())
 
 BRFSS <- read.csv("/Users/mirtamaravilla/Documents/UW Courses/Spring Qtr 2024/EPI 514 /EPI 514 Research/BRFSS") 
+setwd("/Users/mirtamaravilla/Documents/UW Courses/Spring Qtr 2024/EPI 514 /EPI 514 Research")
+getwd()
 
 library(tidyverse)
 library(haven)
@@ -266,3 +268,9 @@ BRFSS$income.f <- factor(BRFSS$income,
                                     "35,000 - < 50,000", ">50,000"))
 
 table(BRFSS$income.f)
+
+
+#saving as csv file 
+
+write.csv(BRFSS, "cleanbrfss.csv")
+
