@@ -1,7 +1,8 @@
 #############################################################################
 # NAME: DATA MANAGEMENT 
 rm(list=ls())
-BRFSS <- read.csv("/Users/aileenandrade/Desktop/Spring Quarter/Epi 514/BRFSS project/Data/BRFSS") 
+
+BRFSS <- read.csv("/Users/mirtamaravilla/Documents/UW Courses/Spring Qtr 2024/EPI 514 /EPI 514 Research/BRFSS") 
 
 library(tidyverse)
 library(haven)
@@ -232,10 +233,11 @@ BRFSS$RaceOthers[BRFSS$RaceOthers == "99"] <- NA
 BRFSS$RaceOthers[BRFSS$RaceOthers == ""] <- NA 
 
 BRFSS$RaceOthers.f <- factor(BRFSS$RaceOthers, 
-                             levels = c(1,2,3,4,5,6,7,8), 
+                             levels = 1:8, 
                              labels = c("White", "Black or African American", 
                                         "Hispanic or Latino", "Asian", 
-                                        "Native Hawaiian or other Pacific Islander", 
+                                        "Native Hawaiian or other Pacific Islander",
+                                        "American Indian or Alaska Native",
                                         "Mixed Race", "Some other group"))
 
 table(BRFSS$state)
@@ -258,7 +260,7 @@ BRFSS$income[BRFSS$income == "11"] <- 7
 
 
 BRFSS$income.f <- factor(BRFSS$income, 
-                         levels = c("1", "2", "3", "4", "5", "6", "7"),  
+                         levels = 1:7, 
                          labels = c("<10,000", "10,000 - <15,000", "15,000 - <20,000", 
                                     "20,000 - < 25,000", "25,000 - < 35,000", 
                                     "35,000 - < 50,000", ">50,000"))
