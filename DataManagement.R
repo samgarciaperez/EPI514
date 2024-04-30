@@ -226,3 +226,41 @@ BRFSS$GenHlth.f <- factor(BRFSS$GenHlth.f,
 #checking
 table(BRFSS$GenHlth.f)
 
+# RACE/ETHNCITY
+BRFSS$RaceOthers[BRFSS$RaceOthers == "77"] <- NA 
+BRFSS$RaceOthers[BRFSS$RaceOthers == "99"] <- NA 
+BRFSS$RaceOthers[BRFSS$RaceOthers == ""] <- NA 
+
+BRFSS$RaceOthers.f <- factor(BRFSS$RaceOthers, 
+                             levels = c(1,2,3,4,5,6,7,8), 
+                             labels = c("White", "Black or African American", 
+                                        "Hispanic or Latino", "Asian", 
+                                        "Native Hawaiian or other Pacific Islander", 
+                                        "Mixed Race", "Some other group"))
+
+table(BRFSS$state)
+
+#JIM CROW 
+BRFSS$jimcrow <- ifelse(BRFSS$state %in% c("1", "4", "5", "10", "12", "13", 
+                                           "20", "21", "22", "24", "28", "29", 
+                                           "35", "37", "40", "45", "47", "48", 
+                                           "51", "54", "56", "11"), 1,0)
+
+table(BRFSS$jimcrow, NA="ifany")
+
+
+#Annual Income 
+table(BRFSS$income)
+BRFSS$income[BRFSS$income == "8"] <- 7 
+BRFSS$income[BRFSS$income == "9"] <- 7
+BRFSS$income[BRFSS$income == "10"] <- 7
+BRFSS$income[BRFSS$income == "11"] <- 7
+
+
+BRFSS$income.f <- factor(BRFSS$income, 
+                         levels = c("1", "2", "3", "4", "5", "6", "7"),  
+                         labels = c("<10,000", "10,000 - <15,000", "15,000 - <20,000", 
+                                    "20,000 - < 25,000", "25,000 - < 35,000", 
+                                    "35,000 - < 50,000", ">50,000"))
+
+table(BRFSS$income.f)
